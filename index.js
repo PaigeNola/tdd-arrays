@@ -11,6 +11,7 @@
  */
 export function getFirst(array) {
   // TODO
+  return array[0];
 }
 
 /**
@@ -26,6 +27,7 @@ export function getFirst(array) {
  */
 export function getLast(array) {
   // TODO
+  return array[array.length - 1];
 }
 
 /**
@@ -43,6 +45,13 @@ export function getLast(array) {
  */
 export function getFirstLast(array) {
   // TODO
+  if (array.length === 1) {
+    return [array[0]];
+  } else if (array.length === 0) {
+    return [];
+  } else {
+    return [array[0], array[array.length - 1]];
+  }
 }
 
 /**
@@ -60,6 +69,12 @@ export function getFirstLast(array) {
  */
 export function sharesFirstLetter(str1, str2) {
   // TODO
+
+  if (str1.length === 0 && str2.length === 0) {
+    return false;
+  } else {
+    return str1[0] === str2[0];
+  }
 }
 
 /**
@@ -75,6 +90,14 @@ export function sharesFirstLetter(str1, str2) {
  */
 export function quintuple(numbers) {
   // TODO
+  let multipliedByFive = [];
+  let newNumber = "";
+
+  for (let i = 0; i <= numbers.length - 1; i++) {
+    newNumber = numbers[i] * 5;
+    multipliedByFive.push(newNumber);
+  }
+  return multipliedByFive;
 }
 
 /**
@@ -96,6 +119,18 @@ export function quintuple(numbers) {
  */
 export function pluralize(words) {
   // TODO
+  let pluralized = [];
+  let newWord = "";
+
+  for (let i = 0; i <= words.length - 1; i++) {
+    if (words[i].endsWith("s")) {
+      newWord = `${words[i]}es`;
+    } else {
+      newWord = `${words[i]}s`;
+    }
+    pluralized.push(newWord);
+  }
+  return pluralized;
 }
 
 /**
@@ -113,6 +148,14 @@ export function pluralize(words) {
  */
 export function countAttendance(attendance) {
   // TODO
+  let present = 0;
+
+  for (let i = 0; i <= attendance.length - 1; i++) {
+    if (attendance[i] === true) {
+      present += 1;
+    }
+  }
+  return present;
 }
 
 /**
@@ -129,6 +172,20 @@ export function countAttendance(attendance) {
  */
 export function getLongestWord(sentence) {
   // TODO
+  let longestWord = "";
+
+  if (sentence.length === 0) {
+    return null;
+  }
+  let i = 0;
+
+  while (i <= sentence.length - 1) {
+    if (sentence[i].length > longestWord.length) {
+      longestWord = sentence[i];
+    }
+    i++;
+  }
+  return longestWord;
 }
 
 /**
@@ -146,8 +203,16 @@ export function getLongestWord(sentence) {
  */
 export function findSong(playlist, song) {
   // TODO
-}
+  let songPosition = "";
 
+  for (let i = 0; i <= playlist.length - 1; i++) {
+    if (playlist[i] === song) {
+      songPosition = i;
+      return songPosition;
+    }
+  }
+  return -1;
+}
 /**
  * @param {string[][]} map - a 2D array in which each element is a string that
  *  represents something in the area, such as "tree", "pigeon", "lamp", or "guard"
@@ -163,4 +228,13 @@ export function findSong(playlist, song) {
  */
 export function findSpy(map) {
   // TODO
+
+  for (let i = 0; i <= map.length - 1; i++) {
+    for (let j = 0; j <= map[i].length - 1; j++) {
+      if (map[i][j] === "spy") {
+        return [i, j];
+      }
+    }
+  }
+  return null;
 }
